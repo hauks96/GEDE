@@ -109,7 +109,7 @@ bool MyEngine::frameStarted(const Ogre::FrameEvent& evt)
 	const Uint8* state = SDL_GetKeyboardState(nullptr);
 
 	if (_input_manager != nullptr) _input_manager->update();
-	if (_roaming_camera != nullptr)	_roaming_camera->update(delta_time, _input_manager->getCameraMovement(), _player->entity_node_->getPosition());
+	if (_roaming_camera != nullptr)	_roaming_camera->update(delta_time, _input_manager->getCameraMovement(), _player->_entity_node->getPosition());
 	if (_player != nullptr) _player->Update(delta_time, _roaming_camera->getDirection(), _input_manager->getCharacterMovement());
 	PickupManager::Update(delta_time, state);
 

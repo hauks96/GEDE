@@ -14,10 +14,10 @@ public:
 	void StopAnimationLoop() const;
 	void StartAnimationLoop() const;
 	Ogre::SceneNode* getEntityNode();
-private:
-	Ogre::SceneManager* _scene_manager;
 	Ogre::Entity* _entity;
 	Ogre::SceneNode* _entity_node;
+private:
+	Ogre::SceneManager* _scene_manager;
 	Ogre::AnimationState* _animation_state_base;
 	Ogre::AnimationState* _animation_state_top;
 	float _speed;
