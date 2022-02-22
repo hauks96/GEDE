@@ -57,14 +57,17 @@ void InputManager::update()
 {
 	_player_axis_x = SDL_JoystickGetAxis(_joystick, 0);
 	_player_axis_y = SDL_JoystickGetAxis(_joystick, 1);
+	_camera_x = SDL_JoystickGetAxis(_joystick, 5);
 
-	// TODO: Get Camera Axis, and update
 
 	SDL_Event event;
 	while (SDL_PollEvent(&event) != 0)
 	{
 		if (event.type == SDL_JOYAXISMOTION)
 		{
+			std::cout << "WHICH: " << event.jaxis.which << std::endl;
+			std::cout << "AXIS: " << event.jaxis.axis << std::endl;
+
 			if (event.jaxis.which == 0)
 			{
 				if (event.jaxis.axis == 0)
@@ -77,6 +80,9 @@ void InputManager::update()
 					const auto value = event.jaxis.value;
 					_player_axis_y = value > _player_axis_y ? value : _player_axis_y;
 				}
+			}
+			if (event.jaxis.which == 5)
+			{
 			}
 		}
 	}
